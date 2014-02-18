@@ -1,0 +1,28 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: HotkeyNet
+scopeName: source.hotkeynet
+fileTypes: [hkn]
+uuid: b3176f3a-13df-41e2-b216-52694d15a51c
+
+patterns:
+- name: comment.line.double-slash.hotkeynet
+  match: ((//).*)
+
+- name: meta.tag.hotkeynet
+  begin: (<)([a-zA-Z]+)
+  beginCaptures:
+    '1': {name: punctuation.section.command.begin.hotkeynet}
+    '2': {name: keyword.other.command-name.hotkeynet}
+  end: '>'
+  patterns:
+  - include: '#modifier-key'
+  
+- include: '#modifier-key'
+  
+repository:
+  modifier-key:
+    match: \b((Scroll|Caps|Num)Lock(On|Off)|(L|R)?(Shift|Ctrl|Alt))
+    name: keyword.operator.modifier.hotkeynet
+
+...
