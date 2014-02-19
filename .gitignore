@@ -1,3 +1,6 @@
+# Only ignored in development branches
+*.tmLanguage
+
 *.cache
 
 *.sublime-project
